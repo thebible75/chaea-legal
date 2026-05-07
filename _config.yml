@@ -1,0 +1,21 @@
+title: 채아챗 (ChaeA Chat) — Legal
+description: Privacy Policy, Terms of Service, and Acceptable Use Policy for the ChaeA Chat Android app.
+theme: jekyll-theme-cayman
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true
+include:
+  - "*.md"
+exclude:
+  - README.md
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
