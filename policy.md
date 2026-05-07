@@ -3,7 +3,7 @@ title: Acceptable Use Policy — ChaeA Chat
 permalink: /policy.html
 ---
 **Language**: [English](policy.html) · [한국어](policy-ko.html)
-**Documents**: [Privacy](privacy.html) · [Terms](terms.html) · [Acceptable Use](policy.html)
+**Documents**: [Guide](guide.html) · [Privacy](privacy.html) · [Terms](terms.html) · [Acceptable Use](policy.html)
 
 ---
 

@@ -11,12 +11,14 @@ Legal documents for the **채아챗 / ChaeA Chat** Android app. Choose your lang
 
 ## 한국어 (Korean)
 
+- [사용 가이드 (User Guide)](guide-ko.html)
 - [개인정보처리방침 (Privacy Policy)](privacy-ko.html)
 - [이용약관 (Terms of Service)](terms-ko.html)
 - [이용정책 (Acceptable Use Policy)](policy-ko.html)
 
 ## English
 
+- [User Guide](guide.html)
 - [Privacy Policy](privacy.html)
 - [Terms of Service](terms.html)
 - [Acceptable Use Policy](policy.html)

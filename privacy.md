@@ -3,7 +3,7 @@ title: Privacy Policy — ChaeA Chat
 permalink: /privacy.html
 ---
 **Language**: [English](privacy.html) · [한국어](privacy-ko.html)
-**Documents**: [Privacy](privacy.html) · [Terms](terms.html) · [Acceptable Use](policy.html)
+**Documents**: [Guide](guide.html) · [Privacy](privacy.html) · [Terms](terms.html) · [Acceptable Use](policy.html)
 
 ---
 

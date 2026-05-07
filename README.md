@@ -2,9 +2,11 @@
 
 Public-facing legal documents for the **채아챗 / ChaeA Chat** Android app. Hosted via GitHub Pages so that the Google Play Console can reference them by URL.
 
-## Live URLs (after Pages activation)
+## Live URLs (Pages enabled)
 
 - Landing: `https://thebible75.github.io/chaea-legal/`
+- Guide (EN): `https://thebible75.github.io/chaea-legal/guide.html`
+- Guide (KO): `https://thebible75.github.io/chaea-legal/guide-ko.html`
 - Privacy (EN): `https://thebible75.github.io/chaea-legal/privacy.html`
 - Privacy (KO): `https://thebible75.github.io/chaea-legal/privacy-ko.html`
 - Terms (EN): `https://thebible75.github.io/chaea-legal/terms.html`
