@@ -45,8 +45,23 @@ The App must not be used for:
 - Identify users (no account system)
 
 ## 6. Reporting
-If you encounter rights violations or policy violations, please contact:
-- incoad@gmail.com
+
+If you find a rights violation or a breach of this policy, you can reach us through **any of three channels**:
+
+### 6-1. In-app — per-message report (preferred)
+**Long-press** the inappropriate AI reply → ActionsSheet → **"Report"**. The reported message body is automatically embedded in the report email so we get intent + context in one shot.
+
+### 6-2. In-app — general report (no specific message)
+**App Settings ▸ "Report inappropriate AI response"** opens a pre-filled email template. Describe the persona / model / preceding question and the issue freely.
+
+### 6-3. Email direct
+- **incoad@gmail.com**
+
+### Handling SLA
+- Every report gets an acknowledgment reply within **24–72 business hours**.
+- If the review confirms a policy violation, we revise the affected system prompt / persona / tool set in the next release (or a hot-fix when warranted).
+- Reports are anonymous unless the sender provides identifying info. Replies go only to the email address you used.
+- We don't host or generate the LLM's output ourselves — a report can't force the upstream model or server to change — but app-side guards (system prompt, tool restrictions, persona tweaks) are the first line of action we evaluate.
 
 ## 7. Policy Changes
 This Policy may be updated alongside app updates. Changes are reflected on this screen.
