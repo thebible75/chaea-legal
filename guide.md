@@ -22,11 +22,14 @@ permalink: /guide.html
 5. [Sending Attachments](#5-sending-attachments)
 6. [Web Search (Always-search)](#6-web-search-always-search)
 7. [Tool Calling](#7-tool-calling)
-8. [Managing Chat History](#8-managing-chat-history)
-9. [App Settings — Theme · Language · Text Size](#9-app-settings--theme--language--text-size)
-10. [Common Issues](#10-common-issues)
-11. [FAQ](#11-faq)
-12. [Privacy · Data](#12-privacy--data)
+8. [Personas](#8-personas)
+9. [Voice (STT · TTS)](#9-voice-stt--tts)
+10. [Backup · Restore](#10-backup--restore)
+11. [Managing Chat History](#11-managing-chat-history)
+12. [App Settings — Theme · Language · Text Size](#12-app-settings--theme--language--text-size)
+13. [Common Issues](#13-common-issues)
+14. [FAQ](#14-faq)
+15. [Privacy · Data](#15-privacy--data)
 
 ---
 
@@ -92,12 +95,20 @@ curl http://<server-ip>:11434/api/tags
 When you launch the app for the first time:
 
 1. **Splash** (logo + spinner, ~0.4s)
-2. **Onboarding pager** — swipe horizontally through 5 pages
-   - Welcome → Server profiles → Streaming/attachments → Agent (search/tools) → Customization
+2. **Onboarding pager** — swipe through 7 pages
+   1. **Welcome** — what the app can do
+   2. **Add a server profile** — Drawer ▸ ⚙️ Settings ▸ "Add profile" / 11 presets (Ollama · LM Studio · Jan · OpenRouter · Groq · vLLM, …)
+   3. **Pick your model** — On the PC: `ollama pull qwen2.5:7b` → tap the model name in the app top bar
+   4. **Personas for any role** — face icon next to the input bar → 10 built-ins + your own
+   5. **Attachments & voice** — ＋ button (images · PDF · Office · HWP · ZIP · source code) + mic input + 🔊 chip
+   6. **Web search & tools** — 6 providers + automatic tool calls (weather · time · currency · file generation · calendar …)
+   7. **Make it yours & back it up** — light/dark · 6 languages · text size · JSON backup of profiles+personas
 3. On the last page, tap **Get started** → enter the chat screen
 
 > Onboarding shows once on first install. To see it again, clear app data:
 > Android Settings → Apps → ChaeA Chat → Storage → Clear data.
+
+> Right after first launch, the **10 built-in personas are auto-seeded** into the user_personas table in the background — they're ready to use immediately when you open the persona sheet ([§8](#8-personas)).
 
 ---
 
@@ -126,7 +137,7 @@ A default profile is pre-registered (with an example URL), but you'll need to re
 ### 3-3. Test connection
 
 After entering the URL, tap **Test connection** → success shows the Ollama version.
-If it fails → see [Section 10](#10-common-issues).
+If it fails → see [Section 13](#13-common-issues).
 
 ### 3-4. Multiple profiles
 
@@ -229,14 +240,14 @@ Settings → **Agent / Search** section →
 
 | Service | Cost | API key | Notes |
 |---------|------|---------|-------|
-| **DuckDuckGo** | Free | ❌ | Works out of the box, mediocre quality |
-| **Tavily** | Free 1000/mo | ✅ | LLM-friendly summaries, recommended |
+| **Tavily** | Free 1000/mo | ✅ | LLM-friendly summaries, most recommended |
+| **Naver** | Free | ✅ | Korean search · news results (Client ID/Secret) |
 | **Brave Search** | Free 2000/mo | ✅ | Privacy-focused |
-| **SerpAPI** | Paid | ✅ | Google search results |
-| **Bing Search** | Paid | ✅ | Microsoft Bing |
-| **Google CSE** | Free 100/day | ✅ | Google Custom Search |
+| **Google CSE** | Free 100/day | ✅ | Google Custom Search Engine |
+| **SerpAPI** | Paid | ✅ | Google · Bing · Naver and other engines |
+| **Exa** | Free ~1000/mo | ✅ | Semantic search + neural ranking |
 
-The settings screen has a direct **Get API key →** link for each service.
+The settings screen has a direct **Get API key →** link for each service. (DuckDuckGo / Bing were removed in early 2026 — quality / policy changes; we consolidated to these 6 providers.)
 
 ### 6-3. Flow
 
@@ -261,14 +272,22 @@ Settings → Agent / Search → **Mode**: pick `Tool calling`.
 
 ### 7-2. Available tools
 
-| Tool | Purpose |
-|------|---------|
-| 🌐 **web_search** | Model searches the web for current data |
-| 📄 **fetch_url** | Read a page's full body |
-| 📋 **list_models** | Query available models on the server |
-| 🩺 **health_check** | Check server status / latency |
+| Tool | Purpose | API kind |
+|------|---------|----------|
+| 🌐 **web_search** | Search the current web with the selected provider | All |
+| 📄 **fetch_url** | Fetch a page's body for deeper reading | All |
+| ⏰ **current_time** | Current time · timezone (IANA + abbreviation aware) | All |
+| 🌤️ **weather** | Open-Meteo + Nominatim fallback (better Korean place name support) | All |
+| 💱 **currency_convert** | Frankfurter API exchange rates | All |
+| 📅 **add_calendar_event** | Add an event via Android Calendar Intent | All |
+| 📱 **device_info** | Battery · network · system info | All |
+| 📝 **create_file** | Generate text / pdf / docx / xlsx file as a chat attachment | All |
+| 📋 **ollama_list_models** | List ALL installed models on the Ollama server | **Ollama only** |
+| 🩺 **server_health_check** | Ollama server status / version | **Ollama only** |
 
-Each tool can be toggled individually.
+Each tool can be toggled individually. On **OpenAI-compatible profiles** (LM Studio · Jan · OpenRouter · Groq · vLLM, …) the last two Ollama-specific tools are auto-hidden via `Tool.requiresApiKind`.
+
+> Single-model identity questions like "which model am I using?" do **not** trigger `ollama_list_models` — they're answered directly from the `Current selected model` line in the system context (added 2026-05).
 
 ### 7-3. Recommended models
 
@@ -295,12 +314,143 @@ Model: [tool result] → generate answer
 
 ### 7-5. Tool calling + streaming
 
-In tool-calling mode, the model has to decide tool calls atomically, so **`stream=false`** is forced
-(regardless of profile setting). After tool execution, the final answer streams normally.
+Ollama 0.3+ and most OpenAI-compatible servers **include `tool_calls` in the final streaming chunk**,
+so the app keeps `stream=true` and processes tool calls inline. After the tool runs, the model is
+called again → the final answer streams as well.
+
+> The tool-call loop is capped at `MAX_TOOL_ITERATIONS=3` (and breaks immediately on a repeated call signature).
 
 ---
 
-## 8. Managing Chat History
+## 8. Personas
+
+**Persona = a pre-defined system prompt bundle.** It swaps the model's role, tone, temperature, allowed tools, and greeting in one click.
+
+### 8-1. Open the persona sheet
+
+- Automatically when starting a **new chat**, or
+- Tap the **face icon** to the left of the input bar
+
+### 8-2. Unified model (since 2026-05)
+
+Built-ins and user-defined personas (UDPs) live in a single section "All personas". On first launch the 10 built-ins are auto-seeded into the `user_personas` table, so **all of them are freely editable and deletable**.
+
+Built-in 10:
+
+| Emoji · id | Role |
+|-----------|------|
+| 💬 general | General assistant |
+| 🌐 translator | Translator |
+| 👨‍💻 coder | Senior SW engineer |
+| ✍️ writer | Writing coach |
+| 📚 tutor | Patient tutor |
+| 🎯 interviewer | Technical interview coach |
+| 📧 email | Email drafting assistant |
+| 📝 summarizer | Summarization assistant |
+| 🎨 creative | Creative writing partner |
+| 💡 brainstorm | Brainstorming partner |
+
+### 8-3. Persona actions
+
+- **Tap** → select (updates the current session's `personaId`)
+- **✏️ Edit** → open the edit dialog (name · emoji · system prompt · temperature · top-P · tool whitelist · greeting)
+- **Delete** → "Delete" button inside the edit dialog
+- **↻ Restore** (header) → re-seed the 10 built-ins in the current locale (overwrites edited copies)
+- **＋ Add** (header) → create a new persona
+
+### 8-4. What the persona overrides
+
+When you send a message, the selected persona transiently overrides `ServerProfile`:
+
+| Field | Behavior |
+|-------|----------|
+| `systemPrompt` | Fully replaced with the persona's systemPrompt |
+| `temperature` | Overrides if set (otherwise the profile value stays) |
+| `topP` | Overrides if set (otherwise the model default) |
+| `enabledTools` | Empty/null → profile as-is. Whitelist → **intersect** with profile's enabled tools |
+
+Other fields (`selectedModel` · `baseUrl` · `numCtx` …) are untouched — a persona is orthogonal to the model/server choice.
+
+### 8-5. Greeting
+
+If a persona has a greeting and the **session is empty** (zero messages), picking that persona inserts the greeting once as an assistant message. No LLM call — purely static, zero tokens.
+
+Switching personas mid-conversation does **not** trigger the greeting (preserves chat flow).
+
+### 8-6. Identity guard
+
+When a persona is active and the user asks "who are you?", the model answers in the persona's role **without revealing the base model name** (Qwen · Llama · GPT, …). For explicit model questions like "what model are you?", it answers with the `Current selected model` line — and does **not** call `ollama_list_models`.
+
+---
+
+## 9. Voice (STT · TTS)
+
+### 9-1. Voice input (STT)
+
+Tap the **mic toggle** in the send-button slot to start speech recognition. The recognized text fills the input field; if "Auto-send" is on, it's sent immediately.
+
+- Uses the system recognizer (Android built-in or the user's default)
+- `EXTRA_PREFER_OFFLINE` is **not** used on Android 13+ (avoids a TTSRecognitionService conflict)
+- Messages sent via voice get `fromVoice=true` — used to gate auto-read of the reply
+
+### 9-2. Read replies aloud (TTS)
+
+Tap the **🔊 chip** below any assistant reply → the system TTS reads it. Tap again = stop.
+
+- **Auto-read** — toggle in settings: reads the reply automatically when it finishes (only for replies to voice messages, or for all)
+- **Multi-locale segmenter** — splits mixed-language text per language for natural pronunciation
+- **Whitelist sanitize** — strips markdown / emoji symbols before speaking
+
+### 9-3. Permission
+
+Voice input needs the `RECORD_AUDIO` permission. Requested on first mic tap → if denied, a dialog with a deep-link to system settings.
+
+---
+
+## 10. Backup · Restore
+
+Export profiles + personas as a single JSON file and re-import them on another device.
+
+### 10-1. Export
+
+⚙️ **App settings** ▸ "Backup profiles" → warning dialog (plain-text sensitive data notice) → SAF picker (`CreateDocument`) → save as `.json`.
+
+### 10-2. Import
+
+⚙️ **App settings** ▸ "Restore from backup" → SAF (`OpenDocument`) → pick the JSON → result dialog (added profiles · personas count).
+
+**Always "add" mode**:
+- All ids are re-issued as new UUIDs (never overwrites existing data)
+- Name collisions get an `(imported)` suffix
+- Active-profile metadata is preserved, but the new id means you may need to re-activate
+
+### 10-3. What's in the backup
+
+| Item | Included |
+|------|----------|
+| ServerProfile (URL · model · system prompt · search key · auth · temperature · topP) | ✅ |
+| UserPersona / seeded built-in personas (name · emoji · system prompt · temperature · topP · tool whitelist · greeting) | ✅ |
+| Active profile id | ✅ |
+| **Chat history** | ❌ — privacy + file size |
+| App settings (theme · language · text size) | ❌ |
+
+### 10-4. Plain-text sensitive data
+
+The backup file contains the following **in plain text**:
+
+- `bearerToken` (server auth)
+- `basicPassword` (Basic auth)
+- `search.apiKey` (search provider API key)
+
+The pre-export warning dialog asks for explicit confirmation. If the file leaks (cloud / email / social), those keys leak too.
+
+### 10-5. Schema versions
+
+`schemaVersion=2` (includes UserPersona's temperature/topP/enabledTools/greeting + ServerProfile.topP). Older v1 files import fine — new fields default to null. Future schema bumps will branch in the importer for backward compatibility.
+
+---
+
+## 11. Managing Chat History
 
 ### 8-1. Side drawer
 
@@ -322,7 +472,7 @@ Long-press a session (or use the icon) → delete.
 
 ---
 
-## 9. App Settings — Theme · Language · Text Size
+## 12. App Settings — Theme · Language · Text Size
 
 Settings → **App settings** section.
 
@@ -357,7 +507,7 @@ Live preview shows the effect immediately.
 
 ---
 
-## 10. Common Issues
+## 13. Common Issues
 
 ### 10-1. "Connection failed"
 
@@ -416,7 +566,7 @@ ollama list           # confirm
 
 ---
 
-## 11. FAQ
+## 14. FAQ
 
 **Q. Where does my data go?**
 A. Only to the Ollama server URL you configured. The app developer / external services are not involved.
@@ -437,11 +587,13 @@ A. The app is free. Ollama is open-source and free. Some search APIs are paid (D
 A. Currently Android only.
 
 **Q. Can I move chat history to another device?**
-A. Export/import not yet supported (on the roadmap). Android backups (Google Account) preserve some
-preferences but not chat content.
+A. **Profiles + personas** can be exported/imported as a JSON file ([§10](#10-backup--restore)). Chat bodies themselves are not in the export (privacy + file size). Within the same Android device, Google account auto-backup preserves some settings.
 
 **Q. Voice / TTS support?**
-A. Not currently.
+A. Both are supported ([§9](#9-voice-stt--tts)). Mic toggle next to the input bar for STT, 🔊 chip below assistant replies for TTS. Auto-read toggle also available.
+
+**Q. Where do I configure personas?**
+A. Face icon next to the input bar → persona sheet ([§8](#8-personas)). The 10 built-ins are auto-seeded and all of them are freely editable / deletable / restorable.
 
 **Q. Code execution / Python interpreter tool?**
 A. Not currently. Ollama itself doesn't run code, so this would need a separate tool integration —
@@ -449,7 +601,7 @@ held back due to security concerns.
 
 ---
 
-## 12. Privacy · Data
+## 15. Privacy · Data
 
 ### 12-1. What this app collects
 
@@ -464,6 +616,8 @@ explicitly configured + the search provider query when search is enabled.
 | `INTERNET` | HTTP communication with the Ollama server + web search |
 | `ACCESS_NETWORK_STATE` | Detect connectivity for accurate error messages |
 | `POST_NOTIFICATIONS` | Notify when a backgrounded streaming response completes |
+| `RECORD_AUDIO` | Voice input (STT) — requested on first mic tap |
+| `FOREGROUND_SERVICE` + `FOREGROUND_SERVICE_DATA_SYNC` | Keep response streaming after the app goes to the background |
 
 ### 12-3. Deleting data
 
