@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-05-24",
+  "notes": "On-device GGUF model catalog for 채아챗 (com.cayber.aichat). Add/remove entries here — app refetches on each profile-edit open. sizeBytes / ramRequiredMb are approximate.",
+  "models": [
+    {
+      "id": "qwen25-0_5b-instruct-q4km",
+      "name": "Qwen2.5 0.5B Instruct",
+      "publisher": "Alibaba (Qwen)",
+      "quant": "Q4_K_M",
+      "sizeBytes": 398000000,
+      "ramRequiredMb": 1536,
+      "languages": ["ko", "en", "ja", "zh", "es", "ru"],
+      "license": "Apache-2.0",
+      "downloadUrl": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/resolve/main/qwen2.5-0.5b-instruct-q4_k_m.gguf",
+      "sha256": null,
+      "recommended": true,
+      "shortDescription": {
+        "ko": "🪶 가장 가벼움 — 빠른 응답·다국어",
+        "en": "🪶 Lightest — fastest, multilingual",
+        "ja": "🪶 最軽量 — 高速・多言語",
+        "zh": "🪶 最轻 — 速度快、多语言",
+        "es": "🪶 El más ligero — rápido, multilingüe",
+        "ru": "🪶 Самая лёгкая — быстрая, многоязычная"
+      }
+    },
+    {
+      "id": "smollm2-360m-instruct-q4km",
+      "name": "SmolLM2 360M Instruct",
+      "publisher": "HuggingFaceTB",
+      "quant": "Q4_K_M",
+      "sizeBytes": 230000000,
+      "ramRequiredMb": 1024,
+      "languages": ["en"],
+      "license": "Apache-2.0",
+      "downloadUrl": "https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct-GGUF/resolve/main/smollm2-360m-instruct-q4_k_m.gguf",
+      "sha256": null,
+      "recommended": false,
+      "shortDescription": {
+        "ko": "🐜 초소형 — 영어 전용, 저사양 폰용",
+        "en": "🐜 Tiny — English only, for low-spec phones",
+        "ja": "🐜 超軽量 — 英語のみ・低スペック向け",
+        "zh": "🐜 超小 — 仅英文,低端机型适用",
+        "es": "🐜 Diminuto — solo inglés, gama baja",
+        "ru": "🐜 Крошечная — только англ., слабые телефоны"
+      }
+    },
+    {
+      "id": "llama32-1b-instruct-q4km",
+      "name": "Llama 3.2 1B Instruct",
+      "publisher": "Meta (via bartowski)",
+      "quant": "Q4_K_M",
+      "sizeBytes": 770000000,
+      "ramRequiredMb": 2560,
+      "languages": ["en", "es", "fr", "de", "it", "pt", "hi", "th"],
+      "license": "Llama 3.2 Community License",
+      "downloadUrl": "https://huggingface.co/bartowski/Llama-3.2-1B-Instruct-GGUF/resolve/main/Llama-3.2-1B-Instruct-Q4_K_M.gguf",
+      "sha256": null,
+      "recommended": true,
+      "shortDescription": {
+        "ko": "🦙 작고 빠름 — 영어/유럽 언어 강함",
+        "en": "🦙 Small and fast — strong EN/EU",
+        "ja": "🦙 小型・高速 — 英語・欧州言語強い",
+        "zh": "🦙 小巧快速 — 英语/欧洲语言强",
+        "es": "🦙 Pequeño y rápido — inglés/EU fuerte",
+        "ru": "🦙 Маленькая и быстрая — англ./евро"
+      }
+    },
+    {
+      "id": "qwen25-1_5b-instruct-q4km",
+      "name": "Qwen2.5 1.5B Instruct",
+      "publisher": "Alibaba (Qwen)",
+      "quant": "Q4_K_M",
+      "sizeBytes": 986000000,
+      "ramRequiredMb": 3072,
+      "languages": ["ko", "en", "ja", "zh", "es", "ru"],
+      "license": "Apache-2.0",
+      "downloadUrl": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/resolve/main/qwen2.5-1.5b-instruct-q4_k_m.gguf",
+      "sha256": null,
+      "recommended": true,
+      "shortDescription": {
+        "ko": "빠르고 가벼움 — 다국어 양호",
+        "en": "Fast and light — solid multilingual",
+        "ja": "高速・軽量 — 多言語対応",
+        "zh": "快速轻量 — 多语言良好",
+        "es": "Rápido y ligero — multilingüe sólido",
+        "ru": "Быстрая и лёгкая — хорошие языки"
+      }
+    },
+    {
+      "id": "exaone35-2_4b-instruct-q4km",
+      "name": "EXAONE 3.5 2.4B Instruct",
+      "publisher": "LG AI Research",
+      "quant": "Q4_K_M",
+      "sizeBytes": 1500000000,
+      "ramRequiredMb": 4096,
+      "languages": ["ko", "en"],
+      "license": "EXAONE AI Model License (research/non-commercial)",
+      "downloadUrl": "https://huggingface.co/LGAI-EXAONE/EXAONE-3.5-2.4B-Instruct-GGUF/resolve/main/EXAONE-3.5-2.4B-Instruct-Q4_K_M.gguf",
+      "sha256": null,
+      "recommended": true,
+      "shortDescription": {
+        "ko": "🇰🇷 한국어 최고 품질 (LG)",
+        "en": "Best Korean quality (LG)",
+        "ja": "韓国語特化 (LG)",
+        "zh": "韩语强化 (LG)",
+        "es": "Mejor calidad en coreano (LG)",
+        "ru": "Лучшее качество корейского (LG)"
+      }
+    },
+    {
+      "id": "gemma3-1b-it-q4km",
+      "name": "Gemma 3 1B Instruct",
+      "publisher": "Google (via unsloth)",
+      "quant": "Q4_K_M",
+      "sizeBytes": 760000000,
+      "ramRequiredMb": 2560,
+      "languages": ["en", "ko", "ja", "zh", "es", "ru"],
+      "license": "Gemma Terms of Use",
+      "downloadUrl": "https://huggingface.co/unsloth/gemma-3-1b-it-GGUF/resolve/main/gemma-3-1b-it-Q4_K_M.gguf",
+      "sha256": null,
+      "recommended": false,
+      "shortDescription": {
+        "ko": "가장 작음 — 저사양 폰",
+        "en": "Smallest — low-end phones",
+        "ja": "最小 — 低スペック端末向け",
+        "zh": "最小 — 适合低端手机",
+        "es": "El más pequeño — teléfonos básicos",
+        "ru": "Самая маленькая — для слабых телефонов"
+      }
+    },
+    {
+      "id": "qwen25-3b-instruct-q4km",
+      "name": "Qwen2.5 3B Instruct",
+      "publisher": "Alibaba (Qwen)",
+      "quant": "Q4_K_M",
+      "sizeBytes": 1930000000,
+      "ramRequiredMb": 5632,
+      "languages": ["ko", "en", "ja", "zh", "es", "ru"],
+      "license": "Qwen Research License",
+      "downloadUrl": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/resolve/main/qwen2.5-3b-instruct-q4_k_m.gguf",
+      "sha256": null,
+      "recommended": true,
+      "shortDescription": {
+        "ko": "균형형 — 8GB+ RAM 폰",
+        "en": "Balanced — 8GB+ phones",
+        "ja": "バランス型 — 8GB+ 端末",
+        "zh": "均衡 — 8GB+ 手机",
+        "es": "Equilibrado — 8 GB+ RAM",
+        "ru": "Сбалансированная — 8 ГБ+"
+      }
+    },
+    {
+      "id": "llama32-3b-instruct-q4km",
+      "name": "Llama 3.2 3B Instruct",
+      "publisher": "Meta (via bartowski)",
+      "quant": "Q4_K_M",
+      "sizeBytes": 2020000000,
+      "ramRequiredMb": 5632,
+      "languages": ["en", "es", "ru", "de", "fr", "it", "pt", "hi", "th"],
+      "license": "Llama 3.2 Community License",
+      "downloadUrl": "https://huggingface.co/bartowski/Llama-3.2-3B-Instruct-GGUF/resolve/main/Llama-3.2-3B-Instruct-Q4_K_M.gguf",
+      "sha256": null,
+      "recommended": false,
+      "shortDescription": {
+        "ko": "영어/유럽 언어 강함",
+        "en": "Strong English/EU languages",
+        "ja": "英語・欧州言語に強い",
+        "zh": "英语/欧洲语言强",
+        "es": "Fuerte en inglés/idiomas europeos",
+        "ru": "Силён в англ./евроязыках"
+      }
+    }
+  ]
+}
