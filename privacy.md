@@ -52,6 +52,17 @@ The App transmits data only in the following cases. Each destination is set expl
 - The App developer does not directly receive, store, or transmit your audio. The App only receives the recognized text result and shows it on screen; that text is sent to the LLM server only when you press send.
 - If you do not want voice input, simply don't tap the microphone, or deny RECORD_AUDIO permission.
 
+### 3-5. On-Device GGUF model downloads (only when you enable it)
+- Active only when you create a "📱 On-Device (GGUF)" profile and pick a model.
+- Only the following two HTTPS requests are made:
+  - **Catalog fetch**: the App downloads the model list JSON from ChaeA's own static host (`thebible75.github.io/chaea-legal/local_models.json`). No user identifier is sent.
+  - **Model file download**: a public HuggingFace direct link (`https://huggingface.co/.../resolve/main/*.gguf`) listed in the catalog. Only the model you explicitly tap is downloaded.
+- The App attaches no user identifier (account, email, device ID, etc.) to HuggingFace requests — a plain HTTP GET.
+- HuggingFace's own data handling is governed by [huggingface.co/privacy](https://huggingface.co/privacy).
+- Downloaded model files are stored inside the app's private storage (`filesDir/models/`) and removed when the app is uninstalled.
+- **Inference (chat) itself runs 100% on your phone.** Your chat messages are not transmitted off the device.
+- If you do not want any model download, simply don't create an "On-Device" profile.
+
 ## 4. Local Data Storage
 All data lives on your device only.
 

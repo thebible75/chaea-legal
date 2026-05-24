@@ -52,6 +52,17 @@ permalink: /privacy-ko.html
 - 본 앱 (개발자) 은 음성 데이터를 직접 수신·저장·전송하지 않습니다. 인식 결과 텍스트만 받아 화면에 표시하고, 사용자가 전송 버튼을 누르면 그제서야 LLM 서버로 전송됩니다.
 - 음성을 사용하지 않으려면 마이크 버튼을 누르지 않으시면 되며, RECORD_AUDIO 권한 거부도 가능합니다.
 
+### 3-5. On-Device GGUF 모델 다운로드 (사용자가 활성화한 경우에만)
+- "📱 On-Device (GGUF)" 프로필을 만들어 모델을 선택했을 때만 활성화됩니다.
+- 다음 두 종류의 HTTPS 요청만 발생합니다:
+  - **카탈로그 조회**: 채아챗 자체 정적 호스트 (`thebible75.github.io/chaea-legal/local_models.json`) 에서 모델 목록 JSON 만 받아옵니다. 사용자 식별 정보는 전송되지 않습니다.
+  - **모델 파일 다운로드**: 카탈로그에 명시된 HuggingFace 공개 다이렉트 링크 (`https://huggingface.co/.../resolve/main/*.gguf`) 에서 사용자가 탭한 모델만 받습니다.
+- 본 앱은 HuggingFace 와의 통신에서 사용자 계정·이메일·기기 식별자 등 어떤 식별 정보도 첨부하지 않습니다 (단순 HTTP GET 만 수행).
+- HuggingFace 의 데이터 처리 정책은 [huggingface.co/privacy](https://huggingface.co/privacy) 에 따릅니다.
+- 다운로드된 모델 파일은 앱 내부 저장소 (`filesDir/models/`) 에 보관되며, 앱을 삭제하면 함께 영구 삭제됩니다.
+- **추론 (채팅)** 자체는 100% 폰 안에서 수행됩니다. 채팅 메시지는 외부로 전송되지 않습니다.
+- 모델을 받지 않으려면 "On-Device" 프로필을 만들지 않으면 됩니다.
+
 ## 4. 로컬 데이터 저장
 모든 데이터는 사용자 기기에만 저장됩니다.
 
