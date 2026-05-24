@@ -452,20 +452,20 @@ The pre-export warning dialog asks for explicit confirmation. If the file leaks 
 
 ## 11. Managing Chat History
 
-### 8-1. Side drawer
+### 11-1. Side drawer
 
 Swipe from the left edge or tap the top-left menu icon to open the drawer.
 
 - **Server profiles section** — switch profiles
 - **Chat history section** — all sessions, newest first
 
-### 8-2. New chat vs. existing chat
+### 11-2. New chat vs. existing chat
 
 - **New chat button** — starts an empty session, doesn't erase existing ones
 - **Tap a session** in the list — reopen that conversation
 - **Date dividers** — `Tuesday, May 6, 2026` style auto-inserted between messages
 
-### 8-3. Delete sessions
+### 11-3. Delete sessions
 
 Long-press a session (or use the icon) → delete.
 **Deleting a server profile does NOT touch chat history** — conversations stay even after the profile is gone.
@@ -476,13 +476,13 @@ Long-press a session (or use the icon) → delete.
 
 Settings → **App settings** section.
 
-### 9-1. Theme
+### 12-1. Theme
 
 - **System** — follow Android's dark/light mode
 - **Light** — always light (KakaoTalk light tones)
 - **Dark** — always dark
 
-### 9-2. Language
+### 12-2. Language
 
 15 locales registered (system language used by default). Currently full translations for 6:
 
@@ -498,7 +498,7 @@ fall back to English when selected.
 
 > Language changes apply instantly (no restart needed).
 
-### 9-3. Chat text size
+### 12-3. Chat text size
 
 Text scale (0.7x ~ 1.6x) applied **only to chat message body** —
 input bar, settings, drawer, etc. follow the system text size.
@@ -509,7 +509,7 @@ Live preview shows the effect immediately.
 
 ## 13. Common Issues
 
-### 10-1. "Connection failed"
+### 13-1. "Connection failed"
 
 Checklist:
 
@@ -527,7 +527,7 @@ Verify:
 curl http://<server-ip>:11434/api/tags
 ```
 
-### 10-2. "Model list is empty"
+### 13-2. "Model list is empty"
 
 The server has no models pulled:
 
@@ -536,29 +536,29 @@ ollama pull llama3.2:3b
 ollama list           # confirm
 ```
 
-### 10-3. "No response coming"
+### 13-3. "No response coming"
 
 - The first token can take time, especially for big models (30s ~ 1min)
 - Out of GPU memory → switch to a smaller model (`llama3.2:1b`, `qwen2.5:3b`)
 - Concurrent requests get queued → wait briefly
 
-### 10-4. "Streaming doesn't work"
+### 13-4. "Streaming doesn't work"
 
 - In tool-calling mode with active tool calls, streaming is forced OFF (by spec)
 - Streaming may be turned off in the profile settings — check
 
-### 10-5. "Background notifications don't show"
+### 13-5. "Background notifications don't show"
 
 - Verify Android 13+ notification permission granted
 - Android Settings → Apps → ChaeA Chat → Notifications → Allow
 - Some OEMs (Samsung, Xiaomi) block backgrounded apps under battery optimization → add an exception
 
-### 10-6. "Korean / multilingual auto-detection isn't working"
+### 13-6. "Korean / multilingual auto-detection isn't working"
 
 - Verify the model handles your language well — `qwen2.5`, `llama3.1`, `eeve-korean`, `solar` are good for Korean
 - Adding "Reply in Korean" (or your target language) to the system prompt makes it more reliable
 
-### 10-7. "PDF body isn't reaching the model"
+### 13-7. "PDF body isn't reaching the model"
 
 - Some PDFs (scanned images) need OCR — currently not supported
 - Password-protected PDFs fail
@@ -603,13 +603,13 @@ held back due to security concerns.
 
 ## 15. Privacy · Data
 
-### 12-1. What this app collects
+### 15-1. What this app collects
 
 **Nothing.** Chat messages, attachments, profiles, and settings are all stored on-device only
 (Room DB + DataStore). The only outbound network traffic is to the Ollama server URL you
 explicitly configured + the search provider query when search is enabled.
 
-### 12-2. Permissions
+### 15-2. Permissions
 
 | Permission | Reason |
 |------------|--------|
@@ -619,7 +619,7 @@ explicitly configured + the search provider query when search is enabled.
 | `RECORD_AUDIO` | Voice input (STT) — requested on first mic tap |
 | `FOREGROUND_SERVICE` + `FOREGROUND_SERVICE_DATA_SYNC` | Keep response streaming after the app goes to the background |
 
-### 12-3. Deleting data
+### 15-3. Deleting data
 
 - **Delete a session** — long-press in the drawer
 - **Delete everything** — Android Settings → Apps → ChaeA Chat → Storage → Clear data
