@@ -3,7 +3,7 @@ title: 이용정책 — 채아챗
 permalink: /policy-ko.html
 ---
 **언어**: [English](policy.html) · [한국어](policy-ko.html)
-**문서**: [사용 가이드](guide-ko.html) · [개인정보처리방침](privacy-ko.html) · [이용약관](terms-ko.html) · [이용정책](policy-ko.html)
+**문서**: [사용 가이드](guide-ko.html) · [개인정보처리방침](privacy-ko.html) · [이용약관](terms-ko.html) · [이용정책](policy-ko.html) · [오픈소스 라이선스](oss-licenses-ko.html)
 
 ---
 

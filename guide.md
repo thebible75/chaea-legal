@@ -3,7 +3,7 @@ title: User Guide — ChaeA Chat
 permalink: /guide.html
 ---
 **Language**: [English](guide.html) · [한국어](guide-ko.html)
-**Documents**: [Guide](guide.html) · [Privacy](privacy.html) · [Terms](terms.html) · [Acceptable Use](policy.html)
+**Documents**: [Guide](guide.html) · [Privacy](privacy.html) · [Terms](terms.html) · [Acceptable Use](policy.html) · [OSS Licenses](oss-licenses.html)
 
 ---
 

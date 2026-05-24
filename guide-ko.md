@@ -3,7 +3,7 @@ title: 사용 가이드 — 채아챗
 permalink: /guide-ko.html
 ---
 **언어**: [English](guide.html) · [한국어](guide-ko.html)
-**문서**: [사용 가이드](guide-ko.html) · [개인정보처리방침](privacy-ko.html) · [이용약관](terms-ko.html) · [이용정책](policy-ko.html)
+**문서**: [사용 가이드](guide-ko.html) · [개인정보처리방침](privacy-ko.html) · [이용약관](terms-ko.html) · [이용정책](policy-ko.html) · [오픈소스 라이선스](oss-licenses-ko.html)
 
 ---
 

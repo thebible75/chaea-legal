@@ -3,7 +3,7 @@ title: Terms of Service — ChaeA Chat
 permalink: /terms.html
 ---
 **Language**: [English](terms.html) · [한국어](terms-ko.html)
-**Documents**: [Guide](guide.html) · [Privacy](privacy.html) · [Terms](terms.html) · [Acceptable Use](policy.html)
+**Documents**: [Guide](guide.html) · [Privacy](privacy.html) · [Terms](terms.html) · [Acceptable Use](policy.html) · [OSS Licenses](oss-licenses.html)
 
 ---
 
