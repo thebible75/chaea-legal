@@ -6,13 +6,13 @@
     {
       "id": "smollm2-360m-instruct-q4km",
       "name": "SmolLM2 360M Instruct",
-      "publisher": "HuggingFaceTB",
+      "publisher": "HuggingFaceTB (via bartowski)",
       "quant": "Q4_K_M",
-      "sizeBytes": 230000000,
+      "sizeBytes": 270590880,
       "ramRequiredMb": 1024,
       "languages": ["en"],
       "license": "Apache-2.0",
-      "downloadUrl": "https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct-GGUF/resolve/main/smollm2-360m-instruct-q4_k_m.gguf",
+      "downloadUrl": "https://huggingface.co/bartowski/SmolLM2-360M-Instruct-GGUF/resolve/main/SmolLM2-360M-Instruct-Q4_K_M.gguf",
       "sha256": null,
       "recommended": false,
       "shortDescription": {
