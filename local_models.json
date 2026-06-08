@@ -1,8 +1,50 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-05-24",
-  "notes": "On-device GGUF model catalog for 채아챗 (com.cayber.aichat). Add/remove entries here — app refetches on each profile-edit open. sizeBytes / ramRequiredMb are approximate.",
+  "updatedAt": "2026-06-09",
+  "notes": "On-device GGUF model catalog for 채아챗 (com.cayber.aichat). Add/remove entries here — app refetches on each profile-edit open. sizeBytes / ramRequiredMb are approximate. Qwen3 entries are reasoning models — they may emit <think> traces before the answer.",
   "models": [
+    {
+      "id": "smollm2-360m-instruct-q4km",
+      "name": "SmolLM2 360M Instruct",
+      "publisher": "HuggingFaceTB",
+      "quant": "Q4_K_M",
+      "sizeBytes": 230000000,
+      "ramRequiredMb": 1024,
+      "languages": ["en"],
+      "license": "Apache-2.0",
+      "downloadUrl": "https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct-GGUF/resolve/main/smollm2-360m-instruct-q4_k_m.gguf",
+      "sha256": null,
+      "recommended": false,
+      "shortDescription": {
+        "ko": "🐜 초소형 — 영어 전용, 저사양 폰용",
+        "en": "🐜 Tiny — English only, for low-spec phones",
+        "ja": "🐜 超軽量 — 英語のみ・低スペック向け",
+        "zh": "🐜 超小 — 仅英文,低端机型适用",
+        "es": "🐜 Diminuto — solo inglés, gama baja",
+        "ru": "🐜 Крошечная — только англ., слабые телефоны"
+      }
+    },
+    {
+      "id": "qwen3-0_6b-q4km",
+      "name": "Qwen3 0.6B",
+      "publisher": "Alibaba (Qwen, via unsloth)",
+      "quant": "Q4_K_M",
+      "sizeBytes": 396705472,
+      "ramRequiredMb": 1536,
+      "languages": ["ko", "en", "ja", "zh", "es", "ru"],
+      "license": "Apache-2.0",
+      "downloadUrl": "https://huggingface.co/unsloth/Qwen3-0.6B-GGUF/resolve/main/Qwen3-0.6B-Q4_K_M.gguf",
+      "sha256": null,
+      "recommended": true,
+      "shortDescription": {
+        "ko": "🆕 최신 Qwen3 — 초경량·다국어 (사고 과정 표시)",
+        "en": "🆕 Newest Qwen3 — ultralight, multilingual (shows reasoning)",
+        "ja": "🆕 最新 Qwen3 — 超軽量・多言語 (思考過程あり)",
+        "zh": "🆕 最新 Qwen3 — 超轻量、多语言 (显示思考)",
+        "es": "🆕 Qwen3 nuevo — ultraligero, multilingüe (muestra razonamiento)",
+        "ru": "🆕 Новейшая Qwen3 — ультралёгкая, многоязычная (показывает рассуждения)"
+      }
+    },
     {
       "id": "qwen25-0_5b-instruct-q4km",
       "name": "Qwen2.5 0.5B Instruct",
@@ -25,24 +67,24 @@
       }
     },
     {
-      "id": "smollm2-360m-instruct-q4km",
-      "name": "SmolLM2 360M Instruct",
-      "publisher": "HuggingFaceTB",
+      "id": "gemma3-1b-it-q4km",
+      "name": "Gemma 3 1B Instruct",
+      "publisher": "Google (via unsloth)",
       "quant": "Q4_K_M",
-      "sizeBytes": 230000000,
-      "ramRequiredMb": 1024,
-      "languages": ["en"],
-      "license": "Apache-2.0",
-      "downloadUrl": "https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct-GGUF/resolve/main/smollm2-360m-instruct-q4_k_m.gguf",
+      "sizeBytes": 760000000,
+      "ramRequiredMb": 2560,
+      "languages": ["en", "ko", "ja", "zh", "es", "ru"],
+      "license": "Gemma Terms of Use",
+      "downloadUrl": "https://huggingface.co/unsloth/gemma-3-1b-it-GGUF/resolve/main/gemma-3-1b-it-Q4_K_M.gguf",
       "sha256": null,
       "recommended": false,
       "shortDescription": {
-        "ko": "🐜 초소형 — 영어 전용, 저사양 폰용",
-        "en": "🐜 Tiny — English only, for low-spec phones",
-        "ja": "🐜 超軽量 — 英語のみ・低スペック向け",
-        "zh": "🐜 超小 — 仅英文,低端机型适用",
-        "es": "🐜 Diminuto — solo inglés, gama baja",
-        "ru": "🐜 Крошечная — только англ., слабые телефоны"
+        "ko": "가장 작음 — 저사양 폰",
+        "en": "Smallest — low-end phones",
+        "ja": "最小 — 低スペック端末向け",
+        "zh": "最小 — 适合低端手机",
+        "es": "El más pequeño — teléfonos básicos",
+        "ru": "Самая маленькая — для слабых телефонов"
       }
     },
     {
@@ -88,6 +130,48 @@
       }
     },
     {
+      "id": "smollm2-1_7b-instruct-q4km",
+      "name": "SmolLM2 1.7B Instruct",
+      "publisher": "HuggingFaceTB",
+      "quant": "Q4_K_M",
+      "sizeBytes": 1055609536,
+      "ramRequiredMb": 3072,
+      "languages": ["en"],
+      "license": "Apache-2.0",
+      "downloadUrl": "https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct-GGUF/resolve/main/smollm2-1.7b-instruct-q4_k_m.gguf",
+      "sha256": null,
+      "recommended": false,
+      "shortDescription": {
+        "ko": "🐜 영어 전용 — 360M의 상위 버전",
+        "en": "🐜 English only — bigger sibling of 360M",
+        "ja": "🐜 英語のみ — 360Mの上位版",
+        "zh": "🐜 仅英文 — 360M 的升级版",
+        "es": "🐜 Solo inglés — versión mayor del 360M",
+        "ru": "🐜 Только англ. — старшая версия 360M"
+      }
+    },
+    {
+      "id": "qwen3-1_7b-q4km",
+      "name": "Qwen3 1.7B",
+      "publisher": "Alibaba (Qwen, via unsloth)",
+      "quant": "Q4_K_M",
+      "sizeBytes": 1107409472,
+      "ramRequiredMb": 3072,
+      "languages": ["ko", "en", "ja", "zh", "es", "ru"],
+      "license": "Apache-2.0",
+      "downloadUrl": "https://huggingface.co/unsloth/Qwen3-1.7B-GGUF/resolve/main/Qwen3-1.7B-Q4_K_M.gguf",
+      "sha256": null,
+      "recommended": true,
+      "shortDescription": {
+        "ko": "🆕 최신 Qwen3 — 가볍고 다국어 (사고 과정 표시)",
+        "en": "🆕 Newest Qwen3 — light, multilingual (shows reasoning)",
+        "ja": "🆕 最新 Qwen3 — 軽量・多言語 (思考過程あり)",
+        "zh": "🆕 最新 Qwen3 — 轻量、多语言 (显示思考)",
+        "es": "🆕 Qwen3 nuevo — ligero, multilingüe (muestra razonamiento)",
+        "ru": "🆕 Новейшая Qwen3 — лёгкая, многоязычная (показывает рассуждения)"
+      }
+    },
+    {
       "id": "exaone35-2_4b-instruct-q4km",
       "name": "EXAONE 3.5 2.4B Instruct",
       "publisher": "LG AI Research",
@@ -106,27 +190,6 @@
         "zh": "韩语强化 (LG)",
         "es": "Mejor calidad en coreano (LG)",
         "ru": "Лучшее качество корейского (LG)"
-      }
-    },
-    {
-      "id": "gemma3-1b-it-q4km",
-      "name": "Gemma 3 1B Instruct",
-      "publisher": "Google (via unsloth)",
-      "quant": "Q4_K_M",
-      "sizeBytes": 760000000,
-      "ramRequiredMb": 2560,
-      "languages": ["en", "ko", "ja", "zh", "es", "ru"],
-      "license": "Gemma Terms of Use",
-      "downloadUrl": "https://huggingface.co/unsloth/gemma-3-1b-it-GGUF/resolve/main/gemma-3-1b-it-Q4_K_M.gguf",
-      "sha256": null,
-      "recommended": false,
-      "shortDescription": {
-        "ko": "가장 작음 — 저사양 폰",
-        "en": "Smallest — low-end phones",
-        "ja": "最小 — 低スペック端末向け",
-        "zh": "最小 — 适合低端手机",
-        "es": "El más pequeño — teléfonos básicos",
-        "ru": "Самая маленькая — для слабых телефонов"
       }
     },
     {
@@ -169,6 +232,69 @@
         "zh": "英语/欧洲语言强",
         "es": "Fuerte en inglés/idiomas europeos",
         "ru": "Силён в англ./евроязыках"
+      }
+    },
+    {
+      "id": "phi35-mini-instruct-q4km",
+      "name": "Phi-3.5-mini Instruct",
+      "publisher": "Microsoft (via bartowski)",
+      "quant": "Q4_K_M",
+      "sizeBytes": 2393232672,
+      "ramRequiredMb": 6144,
+      "languages": ["en", "es", "fr", "de", "it", "pt", "ko", "ja", "zh", "ru"],
+      "license": "MIT",
+      "downloadUrl": "https://huggingface.co/bartowski/Phi-3.5-mini-instruct-GGUF/resolve/main/Phi-3.5-mini-instruct-Q4_K_M.gguf",
+      "sha256": null,
+      "recommended": true,
+      "shortDescription": {
+        "ko": "🧠 추론·코딩 강함 (MS) — 8GB+ 폰",
+        "en": "🧠 Strong reasoning/coding (MS) — 8GB+ phones",
+        "ja": "🧠 推論・コーディング強い (MS) — 8GB+ 端末",
+        "zh": "🧠 推理/编程强 (微软) — 8GB+ 手机",
+        "es": "🧠 Razonamiento/código fuerte (MS) — 8 GB+",
+        "ru": "🧠 Сильна в логике/коде (MS) — 8 ГБ+"
+      }
+    },
+    {
+      "id": "gemma3-4b-it-q4km",
+      "name": "Gemma 3 4B Instruct",
+      "publisher": "Google (via unsloth)",
+      "quant": "Q4_K_M",
+      "sizeBytes": 2489894016,
+      "ramRequiredMb": 6656,
+      "languages": ["en", "ko", "ja", "zh", "es", "ru"],
+      "license": "Gemma Terms of Use",
+      "downloadUrl": "https://huggingface.co/unsloth/gemma-3-4b-it-GGUF/resolve/main/gemma-3-4b-it-Q4_K_M.gguf",
+      "sha256": null,
+      "recommended": true,
+      "shortDescription": {
+        "ko": "💎 고품질 다국어 (Google) — 8GB+ 폰",
+        "en": "💎 High-quality multilingual (Google) — 8GB+ phones",
+        "ja": "💎 高品質・多言語 (Google) — 8GB+ 端末",
+        "zh": "💎 高质量多语言 (谷歌) — 8GB+ 手机",
+        "es": "💎 Multilingüe de alta calidad (Google) — 8 GB+",
+        "ru": "💎 Качественная многоязычная (Google) — 8 ГБ+"
+      }
+    },
+    {
+      "id": "qwen3-4b-q4km",
+      "name": "Qwen3 4B",
+      "publisher": "Alibaba (Qwen)",
+      "quant": "Q4_K_M",
+      "sizeBytes": 2497280256,
+      "ramRequiredMb": 6656,
+      "languages": ["ko", "en", "ja", "zh", "es", "ru"],
+      "license": "Apache-2.0",
+      "downloadUrl": "https://huggingface.co/Qwen/Qwen3-4B-GGUF/resolve/main/Qwen3-4B-Q4_K_M.gguf",
+      "sha256": null,
+      "recommended": true,
+      "shortDescription": {
+        "ko": "🆕 최신 Qwen3 최상위 — 고품질 다국어 (사고 과정 표시)",
+        "en": "🆕 Top Qwen3 — high-quality multilingual (shows reasoning)",
+        "ja": "🆕 最新 Qwen3 最上位 — 高品質・多言語 (思考過程あり)",
+        "zh": "🆕 最新 Qwen3 旗舰 — 高质量多语言 (显示思考)",
+        "es": "🆕 Qwen3 superior — multilingüe de alta calidad (muestra razonamiento)",
+        "ru": "🆕 Топовая Qwen3 — качественная многоязычная (показывает рассуждения)"
       }
     }
   ]
