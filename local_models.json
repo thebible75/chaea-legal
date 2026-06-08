@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "updatedAt": "2026-06-09",
-  "notes": "On-device GGUF model catalog for 채아챗 (com.cayber.aichat). Add/remove entries here — app refetches on each profile-edit open. sizeBytes / ramRequiredMb are approximate. Qwen3 entries are reasoning models — they may emit <think> traces before the answer.",
+  "notes": "On-device GGUF model catalog for 채아챗 (com.cayber.aichat). Add/remove entries here — app refetches on each profile-edit open. sizeBytes / ramRequiredMb are approximate. Qwen3 entries are reasoning models (emit <think>). Entries with mmprojUrl are vision (VLM) models — the app downloads model + mmproj and passes attached images to the model.",
   "models": [
     {
       "id": "smollm2-360m-instruct-q4km",
@@ -10,10 +10,14 @@
       "quant": "Q4_K_M",
       "sizeBytes": 270590880,
       "ramRequiredMb": 1024,
-      "languages": ["en"],
+      "languages": [
+        "en"
+      ],
       "license": "Apache-2.0",
       "downloadUrl": "https://huggingface.co/bartowski/SmolLM2-360M-Instruct-GGUF/resolve/main/SmolLM2-360M-Instruct-Q4_K_M.gguf",
-      "mirrorUrls": ["https://huggingface.co/unsloth/SmolLM2-360M-Instruct-GGUF/resolve/main/SmolLM2-360M-Instruct-Q4_K_M.gguf"],
+      "mirrorUrls": [
+        "https://huggingface.co/unsloth/SmolLM2-360M-Instruct-GGUF/resolve/main/SmolLM2-360M-Instruct-Q4_K_M.gguf"
+      ],
       "sha256": null,
       "recommended": false,
       "shortDescription": {
@@ -32,10 +36,19 @@
       "quant": "Q4_K_M",
       "sizeBytes": 396705472,
       "ramRequiredMb": 1536,
-      "languages": ["ko", "en", "ja", "zh", "es", "ru"],
+      "languages": [
+        "ko",
+        "en",
+        "ja",
+        "zh",
+        "es",
+        "ru"
+      ],
       "license": "Apache-2.0",
       "downloadUrl": "https://huggingface.co/unsloth/Qwen3-0.6B-GGUF/resolve/main/Qwen3-0.6B-Q4_K_M.gguf",
-      "mirrorUrls": ["https://huggingface.co/bartowski/Qwen_Qwen3-0.6B-GGUF/resolve/main/Qwen_Qwen3-0.6B-Q4_K_M.gguf"],
+      "mirrorUrls": [
+        "https://huggingface.co/bartowski/Qwen_Qwen3-0.6B-GGUF/resolve/main/Qwen_Qwen3-0.6B-Q4_K_M.gguf"
+      ],
       "sha256": null,
       "recommended": true,
       "shortDescription": {
@@ -54,10 +67,19 @@
       "quant": "Q4_K_M",
       "sizeBytes": 398000000,
       "ramRequiredMb": 1536,
-      "languages": ["ko", "en", "ja", "zh", "es", "ru"],
+      "languages": [
+        "ko",
+        "en",
+        "ja",
+        "zh",
+        "es",
+        "ru"
+      ],
       "license": "Apache-2.0",
       "downloadUrl": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/resolve/main/qwen2.5-0.5b-instruct-q4_k_m.gguf",
-      "mirrorUrls": ["https://huggingface.co/bartowski/Qwen2.5-0.5B-Instruct-GGUF/resolve/main/Qwen2.5-0.5B-Instruct-Q4_K_M.gguf"],
+      "mirrorUrls": [
+        "https://huggingface.co/bartowski/Qwen2.5-0.5B-Instruct-GGUF/resolve/main/Qwen2.5-0.5B-Instruct-Q4_K_M.gguf"
+      ],
       "sha256": null,
       "recommended": true,
       "shortDescription": {
@@ -76,10 +98,19 @@
       "quant": "Q4_K_M",
       "sizeBytes": 760000000,
       "ramRequiredMb": 2560,
-      "languages": ["en", "ko", "ja", "zh", "es", "ru"],
+      "languages": [
+        "en",
+        "ko",
+        "ja",
+        "zh",
+        "es",
+        "ru"
+      ],
       "license": "Gemma Terms of Use",
       "downloadUrl": "https://huggingface.co/unsloth/gemma-3-1b-it-GGUF/resolve/main/gemma-3-1b-it-Q4_K_M.gguf",
-      "mirrorUrls": ["https://huggingface.co/ggml-org/gemma-3-1b-it-GGUF/resolve/main/gemma-3-1b-it-Q4_K_M.gguf"],
+      "mirrorUrls": [
+        "https://huggingface.co/ggml-org/gemma-3-1b-it-GGUF/resolve/main/gemma-3-1b-it-Q4_K_M.gguf"
+      ],
       "sha256": null,
       "recommended": false,
       "shortDescription": {
@@ -98,10 +129,21 @@
       "quant": "Q4_K_M",
       "sizeBytes": 770000000,
       "ramRequiredMb": 2560,
-      "languages": ["en", "es", "fr", "de", "it", "pt", "hi", "th"],
+      "languages": [
+        "en",
+        "es",
+        "fr",
+        "de",
+        "it",
+        "pt",
+        "hi",
+        "th"
+      ],
       "license": "Llama 3.2 Community License",
       "downloadUrl": "https://huggingface.co/bartowski/Llama-3.2-1B-Instruct-GGUF/resolve/main/Llama-3.2-1B-Instruct-Q4_K_M.gguf",
-      "mirrorUrls": ["https://huggingface.co/lmstudio-community/Llama-3.2-1B-Instruct-GGUF/resolve/main/Llama-3.2-1B-Instruct-Q4_K_M.gguf"],
+      "mirrorUrls": [
+        "https://huggingface.co/lmstudio-community/Llama-3.2-1B-Instruct-GGUF/resolve/main/Llama-3.2-1B-Instruct-Q4_K_M.gguf"
+      ],
       "sha256": null,
       "recommended": true,
       "shortDescription": {
@@ -120,10 +162,19 @@
       "quant": "Q4_K_M",
       "sizeBytes": 986000000,
       "ramRequiredMb": 3072,
-      "languages": ["ko", "en", "ja", "zh", "es", "ru"],
+      "languages": [
+        "ko",
+        "en",
+        "ja",
+        "zh",
+        "es",
+        "ru"
+      ],
       "license": "Apache-2.0",
       "downloadUrl": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/resolve/main/qwen2.5-1.5b-instruct-q4_k_m.gguf",
-      "mirrorUrls": ["https://huggingface.co/bartowski/Qwen2.5-1.5B-Instruct-GGUF/resolve/main/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf"],
+      "mirrorUrls": [
+        "https://huggingface.co/bartowski/Qwen2.5-1.5B-Instruct-GGUF/resolve/main/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf"
+      ],
       "sha256": null,
       "recommended": true,
       "shortDescription": {
@@ -142,10 +193,14 @@
       "quant": "Q4_K_M",
       "sizeBytes": 1055609536,
       "ramRequiredMb": 3072,
-      "languages": ["en"],
+      "languages": [
+        "en"
+      ],
       "license": "Apache-2.0",
       "downloadUrl": "https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct-GGUF/resolve/main/smollm2-1.7b-instruct-q4_k_m.gguf",
-      "mirrorUrls": ["https://huggingface.co/bartowski/SmolLM2-1.7B-Instruct-GGUF/resolve/main/SmolLM2-1.7B-Instruct-Q4_K_M.gguf"],
+      "mirrorUrls": [
+        "https://huggingface.co/bartowski/SmolLM2-1.7B-Instruct-GGUF/resolve/main/SmolLM2-1.7B-Instruct-Q4_K_M.gguf"
+      ],
       "sha256": null,
       "recommended": false,
       "shortDescription": {
@@ -164,10 +219,19 @@
       "quant": "Q4_K_M",
       "sizeBytes": 1107409472,
       "ramRequiredMb": 3072,
-      "languages": ["ko", "en", "ja", "zh", "es", "ru"],
+      "languages": [
+        "ko",
+        "en",
+        "ja",
+        "zh",
+        "es",
+        "ru"
+      ],
       "license": "Apache-2.0",
       "downloadUrl": "https://huggingface.co/unsloth/Qwen3-1.7B-GGUF/resolve/main/Qwen3-1.7B-Q4_K_M.gguf",
-      "mirrorUrls": ["https://huggingface.co/ggml-org/Qwen3-1.7B-GGUF/resolve/main/Qwen3-1.7B-Q4_K_M.gguf"],
+      "mirrorUrls": [
+        "https://huggingface.co/ggml-org/Qwen3-1.7B-GGUF/resolve/main/Qwen3-1.7B-Q4_K_M.gguf"
+      ],
       "sha256": null,
       "recommended": true,
       "shortDescription": {
@@ -186,7 +250,10 @@
       "quant": "Q4_K_M",
       "sizeBytes": 1500000000,
       "ramRequiredMb": 4096,
-      "languages": ["ko", "en"],
+      "languages": [
+        "ko",
+        "en"
+      ],
       "license": "EXAONE AI Model License (research/non-commercial)",
       "downloadUrl": "https://huggingface.co/LGAI-EXAONE/EXAONE-3.5-2.4B-Instruct-GGUF/resolve/main/EXAONE-3.5-2.4B-Instruct-Q4_K_M.gguf",
       "sha256": null,
@@ -207,10 +274,19 @@
       "quant": "Q4_K_M",
       "sizeBytes": 1930000000,
       "ramRequiredMb": 5632,
-      "languages": ["ko", "en", "ja", "zh", "es", "ru"],
+      "languages": [
+        "ko",
+        "en",
+        "ja",
+        "zh",
+        "es",
+        "ru"
+      ],
       "license": "Qwen Research License",
       "downloadUrl": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/resolve/main/qwen2.5-3b-instruct-q4_k_m.gguf",
-      "mirrorUrls": ["https://huggingface.co/bartowski/Qwen2.5-3B-Instruct-GGUF/resolve/main/Qwen2.5-3B-Instruct-Q4_K_M.gguf"],
+      "mirrorUrls": [
+        "https://huggingface.co/bartowski/Qwen2.5-3B-Instruct-GGUF/resolve/main/Qwen2.5-3B-Instruct-Q4_K_M.gguf"
+      ],
       "sha256": null,
       "recommended": true,
       "shortDescription": {
@@ -229,10 +305,22 @@
       "quant": "Q4_K_M",
       "sizeBytes": 2020000000,
       "ramRequiredMb": 5632,
-      "languages": ["en", "es", "ru", "de", "fr", "it", "pt", "hi", "th"],
+      "languages": [
+        "en",
+        "es",
+        "ru",
+        "de",
+        "fr",
+        "it",
+        "pt",
+        "hi",
+        "th"
+      ],
       "license": "Llama 3.2 Community License",
       "downloadUrl": "https://huggingface.co/bartowski/Llama-3.2-3B-Instruct-GGUF/resolve/main/Llama-3.2-3B-Instruct-Q4_K_M.gguf",
-      "mirrorUrls": ["https://huggingface.co/lmstudio-community/Llama-3.2-3B-Instruct-GGUF/resolve/main/Llama-3.2-3B-Instruct-Q4_K_M.gguf"],
+      "mirrorUrls": [
+        "https://huggingface.co/lmstudio-community/Llama-3.2-3B-Instruct-GGUF/resolve/main/Llama-3.2-3B-Instruct-Q4_K_M.gguf"
+      ],
       "sha256": null,
       "recommended": false,
       "shortDescription": {
@@ -251,10 +339,23 @@
       "quant": "Q4_K_M",
       "sizeBytes": 2393232672,
       "ramRequiredMb": 6144,
-      "languages": ["en", "es", "fr", "de", "it", "pt", "ko", "ja", "zh", "ru"],
+      "languages": [
+        "en",
+        "es",
+        "fr",
+        "de",
+        "it",
+        "pt",
+        "ko",
+        "ja",
+        "zh",
+        "ru"
+      ],
       "license": "MIT",
       "downloadUrl": "https://huggingface.co/bartowski/Phi-3.5-mini-instruct-GGUF/resolve/main/Phi-3.5-mini-instruct-Q4_K_M.gguf",
-      "mirrorUrls": ["https://huggingface.co/MaziyarPanahi/Phi-3.5-mini-instruct-GGUF/resolve/main/Phi-3.5-mini-instruct.Q4_K_M.gguf"],
+      "mirrorUrls": [
+        "https://huggingface.co/MaziyarPanahi/Phi-3.5-mini-instruct-GGUF/resolve/main/Phi-3.5-mini-instruct.Q4_K_M.gguf"
+      ],
       "sha256": null,
       "recommended": true,
       "shortDescription": {
@@ -273,10 +374,19 @@
       "quant": "Q4_K_M",
       "sizeBytes": 2489894016,
       "ramRequiredMb": 6656,
-      "languages": ["en", "ko", "ja", "zh", "es", "ru"],
+      "languages": [
+        "en",
+        "ko",
+        "ja",
+        "zh",
+        "es",
+        "ru"
+      ],
       "license": "Gemma Terms of Use",
       "downloadUrl": "https://huggingface.co/unsloth/gemma-3-4b-it-GGUF/resolve/main/gemma-3-4b-it-Q4_K_M.gguf",
-      "mirrorUrls": ["https://huggingface.co/ggml-org/gemma-3-4b-it-GGUF/resolve/main/gemma-3-4b-it-Q4_K_M.gguf"],
+      "mirrorUrls": [
+        "https://huggingface.co/ggml-org/gemma-3-4b-it-GGUF/resolve/main/gemma-3-4b-it-Q4_K_M.gguf"
+      ],
       "sha256": null,
       "recommended": true,
       "shortDescription": {
@@ -295,10 +405,19 @@
       "quant": "Q4_K_M",
       "sizeBytes": 2497280256,
       "ramRequiredMb": 6656,
-      "languages": ["ko", "en", "ja", "zh", "es", "ru"],
+      "languages": [
+        "ko",
+        "en",
+        "ja",
+        "zh",
+        "es",
+        "ru"
+      ],
       "license": "Apache-2.0",
       "downloadUrl": "https://huggingface.co/Qwen/Qwen3-4B-GGUF/resolve/main/Qwen3-4B-Q4_K_M.gguf",
-      "mirrorUrls": ["https://huggingface.co/unsloth/Qwen3-4B-GGUF/resolve/main/Qwen3-4B-Q4_K_M.gguf"],
+      "mirrorUrls": [
+        "https://huggingface.co/unsloth/Qwen3-4B-GGUF/resolve/main/Qwen3-4B-Q4_K_M.gguf"
+      ],
       "sha256": null,
       "recommended": true,
       "shortDescription": {
@@ -308,6 +427,62 @@
         "zh": "🆕 最新 Qwen3 旗舰 — 高质量多语言 (显示思考)",
         "es": "🆕 Qwen3 superior — multilingüe de alta calidad (muestra razonamiento)",
         "ru": "🆕 Топовая Qwen3 — качественная многоязычная (показывает рассуждения)"
+      }
+    },
+    {
+      "id": "smolvlm-256m-instruct-q8",
+      "name": "SmolVLM 256M (Vision)",
+      "publisher": "HuggingFaceTB (via ggml-org)",
+      "quant": "Q8_0",
+      "sizeBytes": 175054528,
+      "ramRequiredMb": 2048,
+      "languages": [
+        "en"
+      ],
+      "license": "Apache-2.0",
+      "downloadUrl": "https://huggingface.co/ggml-org/SmolVLM-256M-Instruct-GGUF/resolve/main/SmolVLM-256M-Instruct-Q8_0.gguf",
+      "mmprojUrl": "https://huggingface.co/ggml-org/SmolVLM-256M-Instruct-GGUF/resolve/main/mmproj-SmolVLM-256M-Instruct-Q8_0.gguf",
+      "mmprojSizeBytes": 103769856,
+      "sha256": null,
+      "recommended": true,
+      "shortDescription": {
+        "ko": "👁 이미지 인식 — 초경량 비전 (영어)",
+        "en": "👁 Sees images — ultralight vision (English)",
+        "ja": "👁 画像認識 — 超軽量ビジョン (英語)",
+        "zh": "👁 识别图像 — 超轻量视觉 (英文)",
+        "es": "👁 Reconoce imágenes — visión ultraligera (inglés)",
+        "ru": "👁 Распознаёт изображения — лёгкая визуальная (англ.)"
+      }
+    },
+    {
+      "id": "moondream2-f16",
+      "name": "Moondream2 (Vision)",
+      "publisher": "vikhyatk (moondream)",
+      "quant": "F16",
+      "sizeBytes": 2839534976,
+      "ramRequiredMb": 8192,
+      "languages": [
+        "en"
+      ],
+      "license": "Apache-2.0",
+      "downloadUrl": "https://huggingface.co/moondream/moondream2-gguf/resolve/main/moondream2-text-model-f16.gguf",
+      "mirrorUrls": [
+        "https://huggingface.co/ggml-org/moondream2-20250414-GGUF/resolve/main/moondream2-text-model-f16_ct-vicuna.gguf"
+      ],
+      "mmprojUrl": "https://huggingface.co/moondream/moondream2-gguf/resolve/main/moondream2-mmproj-f16.gguf",
+      "mmprojMirrorUrls": [
+        "https://huggingface.co/ggml-org/moondream2-20250414-GGUF/resolve/main/moondream2-mmproj-f16-20250414.gguf"
+      ],
+      "mmprojSizeBytes": 909777984,
+      "sha256": null,
+      "recommended": false,
+      "shortDescription": {
+        "ko": "👁 이미지 인식 — 고품질 비전, 대용량 (영어 · 8GB+ 폰)",
+        "en": "👁 Sees images — high-quality vision, large (English · 8GB+)",
+        "ja": "👁 画像認識 — 高品質ビジョン・大容量 (英語 · 8GB+)",
+        "zh": "👁 识别图像 — 高质量视觉,大体积 (英文 · 8GB+)",
+        "es": "👁 Reconoce imágenes — visión de calidad, grande (inglés · 8GB+)",
+        "ru": "👁 Распознаёт изображения — качественная визуальная, большая (англ. · 8ГБ+)"
       }
     }
   ]

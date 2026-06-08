@@ -44,6 +44,10 @@ jobs:
               mid = m['id']
               urls = [('primary', m['downloadUrl'])] + \
                      [('mirror', u) for u in m.get('mirrorUrls', [])]
+              # VLM: mmproj (vision projector) 본체와 별도 파일 — 함께 검사.
+              if m.get('mmprojUrl'):
+                  urls.append(('mmproj', m['mmprojUrl']))
+                  urls += [('mmproj-mirror', u) for u in m.get('mmprojMirrorUrls', [])]
               for kind, url in urls:
                   code = status(url)
                   ok = code == '200'
