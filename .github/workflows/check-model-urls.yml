@@ -1,0 +1,75 @@
+name: Check on-device model URLs
+
+# 채아챗 On-Device(GGUF) 카탈로그의 다운로드 링크가 살아있는지 능동 감지.
+# - 매주 월요일 + 수동 실행 + local_models.json 변경 push 시 자동 검사
+# - downloadUrl / mirrorUrls 전부 HEAD 요청 → 하나라도 비-200 이면 job 실패 (= GitHub 이메일 알림)
+# - 결과는 Actions 요약(Job Summary)에 표로 출력
+on:
+  schedule:
+    - cron: '0 0 * * 1'   # 매주 월요일 00:00 UTC
+  workflow_dispatch:
+  push:
+    paths:
+      - 'local_models.json'
+      - '.github/workflows/check-model-urls.yml'
+
+jobs:
+  check-urls:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Curl every download URL + mirror
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, subprocess, os, sys
+
+          data = json.load(open('local_models.json', encoding='utf-8'))
+          models = data.get('models', [])
+
+          def status(url):
+              try:
+                  r = subprocess.run(
+                      ['curl', '-sIL', '-o', '/dev/null', '-w', '%{http_code}',
+                       '--max-time', '40', url],
+                      capture_output=True, text=True, timeout=60)
+                  return r.stdout.strip() or '000'
+              except Exception as e:
+                  return f'ERR({e})'
+
+          rows = []
+          dead = []
+          for m in models:
+              mid = m['id']
+              urls = [('primary', m['downloadUrl'])] + \
+                     [('mirror', u) for u in m.get('mirrorUrls', [])]
+              for kind, url in urls:
+                  code = status(url)
+                  ok = code == '200'
+                  rows.append((mid, kind, code, url, ok))
+                  if not ok:
+                      dead.append((mid, kind, code, url))
+
+          # GitHub Actions Job Summary (markdown table)
+          summary = os.environ.get('GITHUB_STEP_SUMMARY')
+          if summary:
+              with open(summary, 'a', encoding='utf-8') as f:
+                  f.write(f"## On-device model URL check ({len(models)} models)\n\n")
+                  f.write("| model | kind | HTTP | url |\n|---|---|---|---|\n")
+                  for mid, kind, code, url, ok in rows:
+                      mark = '✅' if ok else '❌'
+                      f.write(f"| {mid} | {kind} | {mark} {code} | `{url}` |\n")
+                  if dead:
+                      f.write(f"\n**❌ {len(dead)} dead URL(s)** — fix `local_models.json`.\n")
+                  else:
+                      f.write("\n**✅ All URLs healthy.**\n")
+
+          for mid, kind, code, url in dead:
+              print(f"DEAD [{code}] {mid} ({kind}): {url}", file=sys.stderr)
+
+          if dead:
+              print(f"::error::{len(dead)} model URL(s) returned non-200 — see job summary")
+              sys.exit(1)
+          print(f"OK — all {len(rows)} URLs healthy across {len(models)} models")
+          PY
