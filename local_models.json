@@ -1,65 +1,8 @@
 {
   "schemaVersion": 1,
   "updatedAt": "2026-06-09",
-  "notes": "On-device GGUF model catalog for 채아챗 (com.cayber.aichat). Add/remove entries here — app refetches on each profile-edit open. sizeBytes / ramRequiredMb are approximate. Qwen3 entries are reasoning models (emit <think>). Entries with mmprojUrl are vision (VLM) models — the app downloads model + mmproj and passes attached images to the model.",
+  "notes": "On-device GGUF model catalog for 채아챗 (com.cayber.aichat). Add/remove entries here — app refetches on each profile-edit open. sizeBytes / ramRequiredMb are approximate. Entries with mmprojUrl are vision (VLM) models — the app downloads model + mmproj and passes attached images to the model.",
   "models": [
-    {
-      "id": "smollm2-360m-instruct-q4km",
-      "name": "SmolLM2 360M Instruct",
-      "publisher": "HuggingFaceTB (via bartowski)",
-      "quant": "Q4_K_M",
-      "sizeBytes": 270590880,
-      "ramRequiredMb": 1024,
-      "languages": [
-        "en"
-      ],
-      "license": "Apache-2.0",
-      "downloadUrl": "https://huggingface.co/bartowski/SmolLM2-360M-Instruct-GGUF/resolve/main/SmolLM2-360M-Instruct-Q4_K_M.gguf",
-      "mirrorUrls": [
-        "https://huggingface.co/unsloth/SmolLM2-360M-Instruct-GGUF/resolve/main/SmolLM2-360M-Instruct-Q4_K_M.gguf"
-      ],
-      "sha256": null,
-      "recommended": false,
-      "shortDescription": {
-        "ko": "🐜 초소형 — 영어 전용, 저사양 폰용",
-        "en": "🐜 Tiny — English only, for low-spec phones",
-        "ja": "🐜 超軽量 — 英語のみ・低スペック向け",
-        "zh": "🐜 超小 — 仅英文,低端机型适用",
-        "es": "🐜 Diminuto — solo inglés, gama baja",
-        "ru": "🐜 Крошечная — только англ., слабые телефоны"
-      }
-    },
-    {
-      "id": "qwen3-0_6b-q4km",
-      "name": "Qwen3 0.6B",
-      "publisher": "Alibaba (Qwen, via unsloth)",
-      "quant": "Q4_K_M",
-      "sizeBytes": 396705472,
-      "ramRequiredMb": 1536,
-      "languages": [
-        "ko",
-        "en",
-        "ja",
-        "zh",
-        "es",
-        "ru"
-      ],
-      "license": "Apache-2.0",
-      "downloadUrl": "https://huggingface.co/unsloth/Qwen3-0.6B-GGUF/resolve/main/Qwen3-0.6B-Q4_K_M.gguf",
-      "mirrorUrls": [
-        "https://huggingface.co/bartowski/Qwen_Qwen3-0.6B-GGUF/resolve/main/Qwen_Qwen3-0.6B-Q4_K_M.gguf"
-      ],
-      "sha256": null,
-      "recommended": true,
-      "shortDescription": {
-        "ko": "🆕 최신 Qwen3 — 초경량·다국어 (사고 과정 표시)",
-        "en": "🆕 Newest Qwen3 — ultralight, multilingual (shows reasoning)",
-        "ja": "🆕 最新 Qwen3 — 超軽量・多言語 (思考過程あり)",
-        "zh": "🆕 最新 Qwen3 — 超轻量、多语言 (显示思考)",
-        "es": "🆕 Qwen3 nuevo — ultraligero, multilingüe (muestra razonamiento)",
-        "ru": "🆕 Новейшая Qwen3 — ультралёгкая, многоязычная (показывает рассуждения)"
-      }
-    },
     {
       "id": "qwen25-0_5b-instruct-q4km",
       "name": "Qwen2.5 0.5B Instruct",
@@ -184,63 +127,6 @@
         "zh": "快速轻量 — 多语言良好",
         "es": "Rápido y ligero — multilingüe sólido",
         "ru": "Быстрая и лёгкая — хорошие языки"
-      }
-    },
-    {
-      "id": "smollm2-1_7b-instruct-q4km",
-      "name": "SmolLM2 1.7B Instruct",
-      "publisher": "HuggingFaceTB",
-      "quant": "Q4_K_M",
-      "sizeBytes": 1055609536,
-      "ramRequiredMb": 3072,
-      "languages": [
-        "en"
-      ],
-      "license": "Apache-2.0",
-      "downloadUrl": "https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct-GGUF/resolve/main/smollm2-1.7b-instruct-q4_k_m.gguf",
-      "mirrorUrls": [
-        "https://huggingface.co/bartowski/SmolLM2-1.7B-Instruct-GGUF/resolve/main/SmolLM2-1.7B-Instruct-Q4_K_M.gguf"
-      ],
-      "sha256": null,
-      "recommended": false,
-      "shortDescription": {
-        "ko": "🐜 영어 전용 — 360M의 상위 버전",
-        "en": "🐜 English only — bigger sibling of 360M",
-        "ja": "🐜 英語のみ — 360Mの上位版",
-        "zh": "🐜 仅英文 — 360M 的升级版",
-        "es": "🐜 Solo inglés — versión mayor del 360M",
-        "ru": "🐜 Только англ. — старшая версия 360M"
-      }
-    },
-    {
-      "id": "qwen3-1_7b-q4km",
-      "name": "Qwen3 1.7B",
-      "publisher": "Alibaba (Qwen, via unsloth)",
-      "quant": "Q4_K_M",
-      "sizeBytes": 1107409472,
-      "ramRequiredMb": 3072,
-      "languages": [
-        "ko",
-        "en",
-        "ja",
-        "zh",
-        "es",
-        "ru"
-      ],
-      "license": "Apache-2.0",
-      "downloadUrl": "https://huggingface.co/unsloth/Qwen3-1.7B-GGUF/resolve/main/Qwen3-1.7B-Q4_K_M.gguf",
-      "mirrorUrls": [
-        "https://huggingface.co/ggml-org/Qwen3-1.7B-GGUF/resolve/main/Qwen3-1.7B-Q4_K_M.gguf"
-      ],
-      "sha256": null,
-      "recommended": true,
-      "shortDescription": {
-        "ko": "🆕 최신 Qwen3 — 가볍고 다국어 (사고 과정 표시)",
-        "en": "🆕 Newest Qwen3 — light, multilingual (shows reasoning)",
-        "ja": "🆕 最新 Qwen3 — 軽量・多言語 (思考過程あり)",
-        "zh": "🆕 最新 Qwen3 — 轻量、多语言 (显示思考)",
-        "es": "🆕 Qwen3 nuevo — ligero, multilingüe (muestra razonamiento)",
-        "ru": "🆕 Новейшая Qwen3 — лёгкая, многоязычная (показывает рассуждения)"
       }
     },
     {
@@ -399,37 +285,6 @@
       }
     },
     {
-      "id": "qwen3-4b-q4km",
-      "name": "Qwen3 4B",
-      "publisher": "Alibaba (Qwen)",
-      "quant": "Q4_K_M",
-      "sizeBytes": 2497280256,
-      "ramRequiredMb": 6656,
-      "languages": [
-        "ko",
-        "en",
-        "ja",
-        "zh",
-        "es",
-        "ru"
-      ],
-      "license": "Apache-2.0",
-      "downloadUrl": "https://huggingface.co/Qwen/Qwen3-4B-GGUF/resolve/main/Qwen3-4B-Q4_K_M.gguf",
-      "mirrorUrls": [
-        "https://huggingface.co/unsloth/Qwen3-4B-GGUF/resolve/main/Qwen3-4B-Q4_K_M.gguf"
-      ],
-      "sha256": null,
-      "recommended": true,
-      "shortDescription": {
-        "ko": "🆕 최신 Qwen3 최상위 — 고품질 다국어 (사고 과정 표시)",
-        "en": "🆕 Top Qwen3 — high-quality multilingual (shows reasoning)",
-        "ja": "🆕 最新 Qwen3 最上位 — 高品質・多言語 (思考過程あり)",
-        "zh": "🆕 最新 Qwen3 旗舰 — 高质量多语言 (显示思考)",
-        "es": "🆕 Qwen3 superior — multilingüe de alta calidad (muestra razonamiento)",
-        "ru": "🆕 Топовая Qwen3 — качественная многоязычная (показывает рассуждения)"
-      }
-    },
-    {
       "id": "smolvlm-256m-instruct-q8",
       "name": "SmolVLM 256M (Vision)",
       "publisher": "HuggingFaceTB (via ggml-org)",
@@ -452,37 +307,6 @@
         "zh": "👁 识别图像 — 超轻量视觉 (英文)",
         "es": "👁 Reconoce imágenes — visión ultraligera (inglés)",
         "ru": "👁 Распознаёт изображения — лёгкая визуальная (англ.)"
-      }
-    },
-    {
-      "id": "moondream2-f16",
-      "name": "Moondream2 (Vision)",
-      "publisher": "vikhyatk (moondream)",
-      "quant": "F16",
-      "sizeBytes": 2839534976,
-      "ramRequiredMb": 8192,
-      "languages": [
-        "en"
-      ],
-      "license": "Apache-2.0",
-      "downloadUrl": "https://huggingface.co/moondream/moondream2-gguf/resolve/main/moondream2-text-model-f16.gguf",
-      "mirrorUrls": [
-        "https://huggingface.co/ggml-org/moondream2-20250414-GGUF/resolve/main/moondream2-text-model-f16_ct-vicuna.gguf"
-      ],
-      "mmprojUrl": "https://huggingface.co/moondream/moondream2-gguf/resolve/main/moondream2-mmproj-f16.gguf",
-      "mmprojMirrorUrls": [
-        "https://huggingface.co/ggml-org/moondream2-20250414-GGUF/resolve/main/moondream2-mmproj-f16-20250414.gguf"
-      ],
-      "mmprojSizeBytes": 909777984,
-      "sha256": null,
-      "recommended": false,
-      "shortDescription": {
-        "ko": "👁 이미지 인식 — 고품질 비전, 대용량 (영어 · 8GB+ 폰)",
-        "en": "👁 Sees images — high-quality vision, large (English · 8GB+)",
-        "ja": "👁 画像認識 — 高品質ビジョン・大容量 (英語 · 8GB+)",
-        "zh": "👁 识别图像 — 高质量视觉,大体积 (英文 · 8GB+)",
-        "es": "👁 Reconoce imágenes — visión de calidad, grande (inglés · 8GB+)",
-        "ru": "👁 Распознаёт изображения — качественная визуальная, большая (англ. · 8ГБ+)"
       }
     }
   ]
